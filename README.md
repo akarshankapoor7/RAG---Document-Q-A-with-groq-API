@@ -1,92 +1,28 @@
-📄 RAG Document Q&A with Streamlit, LangChain & Llama3
-🔍 Overview
-This project is a Retrieval-Augmented Generation (RAG) Document Q&A application built with:
-✅ Streamlit (UI)
-✅ LangChain (Document Processing & Retrieval)
-✅ Groq’s Llama3 Model (LLM for Answer Generation)
+RAG Document Q&A with Streamlit, LangChain & Llama3
+This project is a Retrieval-Augmented Generation (RAG) Document Q&A application built with Streamlit, LangChain, and Groq’s Llama3 model. It allows users to query information from PDF documents stored in a specified directory (dox).
 
-It enables users to query PDF documents stored in a directory (dox) and retrieve relevant information efficiently.
+The system processes PDFs using PyPDFDirectoryLoader, splits them into chunks with RecursiveCharacterTextSplitter, and embeds them into a FAISS vector store using HuggingFace’s all-MiniLM-L6-v2 embeddings. When a user inputs a query, the app retrieves relevant document chunks via a retrieval chain and generates answers using the Llama3-8b-8192 model, displaying both the response and similar document excerpts.
 
-🚀 Features
-✔ PDF Document Processing: Uses PyPDFDirectoryLoader to load PDFs
-✔ Text Splitting: Splits documents into chunks via RecursiveCharacterTextSplitter
-✔ Vector Storage: Stores embeddings in a FAISS vector database
-✔ Query Processing: Retrieves relevant chunks using retrieval chains
-✔ LLM Answer Generation: Uses Llama3-8b-8192 for response generation
-✔ Document Similarity Search: Displays similar document excerpts
-✔ Response Time Tracking
+Features
+Loads PDF documents from the dox directory.
 
-🛠️ Installation
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/rag-document-qa.git
-cd rag-document-qa
-2️⃣ Create a Virtual Environment
-bash
-Copy
-Edit
-python -m venv myenv
-source myenv/bin/activate  # On macOS/Linux
-myenv\Scripts\activate  # On Windows
-3️⃣ Install Dependencies
-bash
-Copy
-Edit
-pip install -r requirements.txt
-4️⃣ Set Up Environment Variables
-Create a .env file in the project root and add:
+Splits documents into chunks for better retrieval.
 
-ini
-Copy
-Edit
-GROQ_API_KEY=your_groq_api_key
-LANGCHAIN_API_KEY=your_langchain_api_key
-LANGCHAIN_TRACING_V2=true
-HF_TOKEN=your_huggingface_api_token
-5️⃣ Run the Application
-bash
-Copy
-Edit
-streamlit run app.py
-📂 Project Structure
-bash
-Copy
-Edit
-📂 RAG Document Q&A
-│── 📂 dox                  # Directory for storing PDF documents
-│── 📜 app.py               # Main application script
-│── 📜 requirements.txt      # Dependencies
-│── 📜 .env                  # Environment variables (not shared)
-│── 📜 README.md             # Project Documentation
-📝 Usage
-1️⃣ Upload PDF files into the dox directory
-2️⃣ Click the "Submit" button to process and store document embeddings
-3️⃣ Enter a query in the text input box
-4️⃣ View the answer & similar document excerpts
+Stores document embeddings in a FAISS vector database.
 
-📌 Dependencies
-streamlit
+Uses retrieval chains to fetch relevant document sections.
 
-langchain
+Generates answers using Groq’s Llama3 model.
 
-faiss-cpu
+Displays relevant document excerpts for context.
 
-sentence-transformers
+Usage
+Add PDF documents to the dox directory.
 
-python-dotenv
+Click the "Submit" button to process and store document embeddings.
 
-pypdf
+Enter a query in the text input box.
 
-groq
+View the generated answer along with similar document excerpts.
 
-huggingface_hub
-
-🔗 References
-LangChain Documentation: https://python.langchain.com
-
-Groq API: https://groq.com
-
-FAISS: https://github.com/facebookresearch/faiss
-
+Dependencies
